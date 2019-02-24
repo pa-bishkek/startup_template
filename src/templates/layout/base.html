@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        {% include "header.html" %}
+        {% include "nav.html" %}
+        {% block promo %}
+        {% endblock %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <aside class="col-md-4 blog-sidebar">
+                {% block sidebar %}
+                {% endblock %}
+            </aside>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

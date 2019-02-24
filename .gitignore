@@ -1,0 +1,9 @@
+.DS_Store
+
+.vscode
+.idea
+codealike.json
+yarn-error.log
+
+node_modules
+dist
