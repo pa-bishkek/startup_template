@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const debug = require("gulp-debug");
 const sass = require("gulp-sass");
 const nunjucks = require("gulp-nunjucks-render");
+const concat = require("gulp-concat");
 const browserSync = require("browser-sync").create();
 
 gulp.task("nunjucks", cb => {
@@ -29,6 +30,16 @@ gulp.task("sass", () => {
     .pipe(sass())
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream());
+});
+
+gulp.task("concat_js", () => {
+  return gulp
+    .src([
+      "./src/scripts/**/*.js",
+      "./node_modules/bootstrap/dist/js/bootstrap.js"
+    ])
+    .pipe(concat("all.js"))
+    .pipe(gulp.dest("./dist/scripts"));
 });
 
 gulp.task("copy_images", () => {
